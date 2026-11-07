@@ -1,0 +1,260 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --ivory: #f4f0e9; --ink: #22201d; --gold: #b49a68; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--ivory); color: var(--ink); font-family: Arial, sans-serif; }
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--gold); color: var(--ivory); }
+.eyebrow { color: var(--gold); font-size: 11px; letter-spacing: .24em; text-transform: uppercase; }
+button, a, input, select, textarea { transition-duration: 350ms; }
+#services { background-image: linear-gradient(90deg, rgba(244,240,233,.97), rgba(244,240,233,.88)), url('/images/luxury-living-room.png'); background-size: cover; background-position: center; }
+
+/* Keep the process labels compact and secondary to the section heading. */
+main > section:nth-of-type(3) h3 { font-size: 1.25rem; line-height: 1.2; }
+
+main:not(#main-content) > header + section {
+  background-image: linear-gradient(rgba(12, 12, 12, .68), rgba(12, 12, 12, .78)), url('/images/internal-hero-background.png');
+  background-size: cover;
+  background-position: center;
+}
+
+main#main-content > footer { display: none; }
+/* Full-viewport homepage hero with a subtle drifting particle field. */
+main#main-content > section:first-of-type {
+  min-height: 100svh;
+  isolation: isolate;
+}
+
+main#main-content > section:first-of-type h1 {
+  font-size: clamp(3.6rem, 6.8vw, 6.5rem) !important;
+}
+
+main#main-content > section:first-of-type::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  opacity: .82;
+  background-image:
+    radial-gradient(circle at 7% 18%, rgba(244, 240, 233, .9) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 13% 74%, rgba(180, 154, 104, .95) 0 2px, transparent 3px),
+    radial-gradient(circle at 24% 32%, rgba(244, 240, 233, .6) 0 1.2px, transparent 2px),
+    radial-gradient(circle at 35% 83%, rgba(244, 240, 233, .8) 0 1px, transparent 2px),
+    radial-gradient(circle at 48% 19%, rgba(180, 154, 104, .78) 0 1.5px, transparent 2.6px),
+    radial-gradient(circle at 57% 59%, rgba(244, 240, 233, .72) 0 2.2px, transparent 3.3px),
+    radial-gradient(circle at 68% 11%, rgba(244, 240, 233, .52) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 73% 81%, rgba(180, 154, 104, .92) 0 1.3px, transparent 2.5px),
+    radial-gradient(circle at 87% 41%, rgba(244, 240, 233, .9) 0 2.4px, transparent 3.6px),
+    radial-gradient(circle at 93% 72%, rgba(244, 240, 233, .5) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 18% 51%, rgba(244, 240, 233, .7) 0 1.7px, transparent 2.7px),
+    radial-gradient(circle at 31% 12%, rgba(180, 154, 104, .72) 0 1px, transparent 2px),
+    radial-gradient(circle at 41% 67%, rgba(244, 240, 233, .85) 0 1.4px, transparent 2.4px),
+    radial-gradient(circle at 62% 35%, rgba(180, 154, 104, .8) 0 2px, transparent 3px),
+    radial-gradient(circle at 79% 57%, rgba(244, 240, 233, .68) 0 1px, transparent 1.9px),
+    radial-gradient(circle at 96% 17%, rgba(180, 154, 104, .76) 0 1.5px, transparent 2.5px);
+  animation: hero-particles-float 19s ease-in-out infinite alternate;
+}
+
+main#main-content > section:first-of-type::before {
+  position: absolute;
+  z-index: 1;
+  inset: -8%;
+  pointer-events: none;
+  content: "";
+  opacity: .5;
+  filter: blur(1.5px);
+  background-image:
+    radial-gradient(circle at 10% 62%, rgba(180, 154, 104, .55) 0 4px, transparent 12px),
+    radial-gradient(circle at 29% 16%, rgba(244, 240, 233, .35) 0 3px, transparent 10px),
+    radial-gradient(circle at 46% 74%, rgba(180, 154, 104, .5) 0 7px, transparent 17px),
+    radial-gradient(circle at 71% 35%, rgba(244, 240, 233, .3) 0 4px, transparent 13px),
+    radial-gradient(circle at 89% 20%, rgba(180, 154, 104, .6) 0 8px, transparent 20px),
+    radial-gradient(circle at 84% 88%, rgba(244, 240, 233, .28) 0 5px, transparent 15px);
+  animation: hero-particles-near 13s cubic-bezier(.45, 0, .55, 1) infinite alternate;
+}
+
+main#main-content > section:first-of-type > :last-child {
+  position: relative;
+  z-index: 2;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Keep the key home-page messages visible even if an entrance observer is delayed. */
+#contact > :last-child {
+  position: relative;
+  z-index: 2;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+@keyframes hero-particles-float {
+  0% { transform: translate3d(calc(var(--hero-parallax-far-x, 0px) - .4%), calc(var(--hero-parallax-far-y, 0px) + 1%), 0) scale(1); }
+  38% { transform: translate3d(calc(var(--hero-parallax-far-x, 0px) + 1.8%), calc(var(--hero-parallax-far-y, 0px) - 1.6%), 0) scale(1.015); }
+  70% { transform: translate3d(calc(var(--hero-parallax-far-x, 0px) - 1.1%), calc(var(--hero-parallax-far-y, 0px) + .5%), 0) scale(.99); }
+  100% { transform: translate3d(calc(var(--hero-parallax-far-x, 0px) + .8%), calc(var(--hero-parallax-far-y, 0px) - 2.2%), 0) scale(1.01); }
+}
+
+@keyframes hero-particles-near {
+  0% { transform: translate3d(calc(var(--hero-parallax-near-x, 0px) - 1.5%), calc(var(--hero-parallax-near-y, 0px) + 1%), 0) scale(1.02); }
+  45% { transform: translate3d(calc(var(--hero-parallax-near-x, 0px) + 2.4%), calc(var(--hero-parallax-near-y, 0px) - 2.8%), 0) scale(.98); }
+  100% { transform: translate3d(calc(var(--hero-parallax-near-x, 0px) - .8%), calc(var(--hero-parallax-near-y, 0px) + 2.2%), 0) scale(1.04); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main#main-content > section:first-of-type::before,
+  main#main-content > section:first-of-type::after { animation: none; }
+}
+#works { background-image: linear-gradient(90deg, rgba(244,240,233,.82), rgba(244,240,233,.94)), url('/images/construction-site.png'); background-size: cover; background-position: center; }
+
+/* Reframe the approach as a focused, architectural process statement. */
+main#main-content > section:nth-of-type(3) {
+  position: relative;
+  overflow: hidden;
+  background: #292622;
+  color: var(--ivory);
+}
+main#main-content > section:nth-of-type(3)::before {
+  position: absolute;
+  right: -1.5rem;
+  top: -5.5rem;
+  color: rgba(180, 154, 104, .11);
+  font-family: Georgia, serif;
+  font-size: clamp(16rem, 31vw, 34rem);
+  font-style: italic;
+  line-height: 1;
+  content: "01";
+  pointer-events: none;
+}
+main#main-content > section:nth-of-type(3) > div { position: relative; z-index: 1; }
+main#main-content > section:nth-of-type(3) h2 { color: var(--ivory); }
+main#main-content > section:nth-of-type(3) > div > div:first-child { align-self: start; }
+main#main-content > section:nth-of-type(3) > div > div:first-child::after {
+  display: block;
+  width: 3.5rem;
+  height: 1px;
+  margin-top: 1.25rem;
+  background: var(--gold);
+  content: "";
+}
+main#main-content > section:nth-of-type(3) p { color: rgba(244, 240, 233, .68) !important; }
+main#main-content > section:nth-of-type(3) > div > div:last-child > div {
+  gap: 1px;
+  margin-top: 3.5rem;
+  border: 0;
+  background: rgba(244, 240, 233, .18);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+main#main-content > section:nth-of-type(3) > div > div:last-child > div > div {
+  min-width: 0;
+  min-height: 12.5rem;
+  padding: 1.75rem !important;
+  border: 0 !important;
+  background: rgba(244, 240, 233, .06);
+  transition: background-color 350ms ease, transform 350ms ease;
+}
+main#main-content > section:nth-of-type(3) > div > div:last-child > div > div:hover {
+  background: rgba(180, 154, 104, .18);
+  transform: translateY(-.35rem);
+}
+main#main-content > section:nth-of-type(3) h3 {
+  color: var(--ivory);
+  font-size: clamp(1.25rem, 1.85vw, 2rem) !important;
+  line-height: 1.05;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 767px) {
+  main#main-content > section:nth-of-type(3) > div > div:last-child > div { grid-template-columns: 1fr; }
+  main#main-content > section:nth-of-type(3) > div > div:last-child > div > div { min-height: auto; }
+}
+
+/* Feature one project prominently, then stack the supporting work alongside it. */
+@media (min-width: 768px) {
+  #works > div {
+    grid-template-columns: minmax(0, 1.22fr) minmax(260px, .78fr);
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    min-height: 720px;
+  }
+
+  #works > div > a:first-child { grid-row: span 2; }
+  #works > div > a > div { height: 100%; aspect-ratio: auto; }
+  #works > div > a:first-child h3 { font-size: clamp(2.4rem, 4vw, 4.5rem) !important; max-width: 11ch; }
+  #works > div > a:not(:first-child) h3 { font-size: clamp(1.75rem, 2.3vw, 2.6rem) !important; }
+}
+
+#works > div > a { position: relative; }
+#works > div > a::before {
+  position: absolute;
+  z-index: 2;
+  top: 1.5rem;
+  left: 1.5rem;
+  color: var(--ivory);
+  font-size: 10px;
+  letter-spacing: .2em;
+  content: "01 / FEATURED";
+}
+#works > div > a:nth-child(2)::before { content: "02 / SELECTED"; }
+#works > div > a:nth-child(3)::before { content: "03 / SELECTED"; }
+#works > div > a > div::after {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(244, 240, 233, .23);
+  content: "";
+  transition: border-color 350ms ease;
+}
+#works > div > a:hover > div::after { border-color: var(--gold); }
+h1 { font-size: clamp(3.75rem, 8vw, 7.5rem) !important; }
+h2 { font-size: clamp(2.75rem, 5.5vw, 5.25rem) !important; }
+h3 { font-size: clamp(1.75rem, 3vw, 3rem) !important; }
+@media (max-width: 640px) { h1 { font-size: clamp(3.25rem, 15vw, 5rem) !important; } h2 { font-size: clamp(2.4rem, 11vw, 4rem) !important; } }
+
+@media (max-width: 767px) {
+  /* Navigation remains easy to use without taking over the hero. */
+  header nav { padding-top: 1rem; padding-bottom: 1rem; }
+  header nav > a { height: 2.75rem; width: 8.5rem; }
+
+  /* Keep the first viewport focused, legible, and reachable on shorter phones. */
+  main#main-content > section:first-of-type {
+    min-height: 100svh;
+    padding-top: 7.5rem;
+    padding-bottom: 3rem;
+  }
+  main#main-content > section:first-of-type h1 { letter-spacing: -.045em; }
+  main#main-content > section:first-of-type p:not(.eyebrow) { max-width: 20rem; }
+  main#main-content > section:first-of-type::before { opacity: .32; }
+  main#main-content > section:first-of-type::after { opacity: .55; }
+
+  /* Preserve generous rhythm without desktop-sized empty space. */
+  main#main-content > section:not(:first-of-type) { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+  main#main-content > section:nth-of-type(3) > div { gap: 2.5rem; }
+  main#main-content > section:nth-of-type(3) h3 { font-size: 1.1rem !important; }
+
+  /* Make the project rail tactile and balanced on narrow screens. */
+  #works > div { gap: 1rem; margin-top: 2rem; }
+  #works > div > a > div { aspect-ratio: 5 / 6; }
+  #works > div > a h3 { bottom: 1.25rem; left: 1.25rem; right: 1.25rem; }
+  #works > div > a::before { top: 1rem; left: 1rem; }
+
+  /* Stack the final CTA cleanly and keep its action full-width for touch. */
+  #contact > div { padding: 1.5rem; }
+  #contact h2 { max-width: 8ch; }
+  #contact .shrink-0 { width: 100%; }
+  #contact .shrink-0 a { width: 100%; }
+
+  footer { padding-top: 3.5rem !important; }
+}
+
+@media (max-width: 380px) {
+  main#main-content > section:first-of-type { padding-left: 1.25rem; padding-right: 1.25rem; }
+  main#main-content > section:first-of-type h1 { font-size: 3.05rem !important; }
+  #contact > div { padding: 1.25rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}

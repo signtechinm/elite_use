@@ -1,0 +1,5 @@
+export const services = [
+  { slug: "construction", number: "01", title: "Construction", intro: "Built with discipline and detail.", description: "From planning through execution, we deliver carefully managed construction projects with dependable workmanship and clear communication.", capabilities: ["Project planning", "Civil works", "Structural execution", "Site coordination"] },
+  { slug: "interior-design", number: "02", title: "Interior design", intro: "Spaces shaped around the way you live.", description: "We create refined, functional interiors that balance material, proportion, light, and everyday comfort.", capabilities: ["Concept design", "Space planning", "Material selection", "Custom detailing"] },
+  { slug: "turnkey-projects", number: "03", title: "Turnkey projects", intro: "One vision. Every detail handled.", description: "Our end-to-end approach brings design, sourcing, execution, and handover together for a seamless project experience.", capabilities: ["Design and build", "MEP coordination", "Furniture and fixtures", "Final handover"] }
+];
